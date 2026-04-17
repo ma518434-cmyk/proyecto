@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapa — Prepa 2 UAEH</title>
+     <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+    <header class="header">
+        <div class="header_logo">
+            <div class="header_logo-img " ></div>
+        </div>
+        <div class="header_info">
+            <span id="js-mode-label" class="header_mode-label">Modo exploración</span>
+            <button id="js-reset-btn" class="header_reset-btn" title="Limpiar ruta">✕ Limpiar ruta</button>
+        </div>
+    </header>
+    <main class="main">
+        <aside class="cinta">
+            <h2 class="cinta_title">Puntos de interés</h2>
+            <ul class="poi-list" id="js-poi-list">
+            </ul>
+            <div class="cinta_divider"></div>
+            <div class="route-panel" id="js-route-panel">
+                <h3 class="route-panel__title">Ruta</h3>
+                <p class="route-panel__hint" id="js-route-hint"> Haz clic en el mapa para marcar el <strong>origen</strong>.
+                </p>
+                <div class="route-panel__points" id="js-route-points">
+                    <div class="route-point route-point--origin">
+                        <span class="route-point__dot route-point__dot--origin"></span>
+                        <span class="route-point__label" id="js-origin-label">Sin seleccionar</span>
+                    </div>
+                    <div class="route-point__line"></div>
+                    <div class="route-point route-point--dest">
+                        <span class="route-point__dot route-point__dot--dest"></span>
+                        <span class="route-point__label" id="js-dest-label">Sin seleccionar</span>
+                    </div>
+                </div>
+                <button id="js-clear-route-btn" class="route-panel__clear-btn">Limpiar</button>
+            </div>
+            <div class="cinta_divider"></div>
+            <div class="legend">
+                <h3 class="legend__title">Leyenda</h3>
+                <div class="legend__item">
+                    <span class="legend__icon legend__icon--building"></span>
+                    <span>Edificios / Aulas</span>
+                </div>
+                <div class="legend__item">
+                    <span class="legend__icon legend__icon--sport"></span>
+                    <span>Áreas deportivas</span>
+                </div>
+                <div class="legend__item">
+                    <span class="legend__icon legend__icon--parking"></span>
+                    <span>Estacionamiento</span>
+                </div>
+                <div class="legend__item">
+                    <span class="legend__icon legend__icon--service"></span>
+                    <span>Servicios</span>
+                </div>
+            </div>
+        </aside>
+        <section class="map-container">
+            <div class="map-wrapper" id="js-map-wrapper">
+                <canvas id="js-map-canvas"></canvas>
+                <div class="map-tooltip" id="js-tooltip">
+                    <span class="map-tooltip__icon" id="js-tooltip-icon"></span>
+                    <span class="map-tooltip__name" id="js-tooltip-name"></span>
+                    <span class="map-tooltip__desc" id="js-tooltip-desc"></span>
+                </div>
+            </div>
+            <div class="zoom-controls">
+                <button class="zoom-btn" id="js-zoom-in" title="Acercar">+</button>
+                <button class="zoom-btn" id="js-zoom-out" title="Alejar">−</button>
+                <button class="zoom-btn" id="js-zoom-reset" title="Restablecer">⊙</button>
+            </div>
+            <div class="map-instructions" id="js-instructions">
+                <span>Arrastra para mover · Scroll para zoom · Clic para trazar ruta</span>
+            </div>
+        </section>
+    </main>
+    <script src="codigo.js"></script>
+</body>
+</html>
