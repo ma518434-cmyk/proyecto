@@ -1,0 +1,298 @@
+
+/* ---- Variables base (igual que style.css) ---- */
+:root {
+    --c-bg:           #0e0b08;
+    --c-surface:      #1a1108;
+    --c-border:       rgba(255, 160, 60, 0.15);
+    --c-border-hot:   rgba(255, 140, 40, 0.55);
+    --c-orange:       #ff7a1a;
+    --c-orange-light: #ffab5e;
+    --c-orange-dim:   rgba(255, 122, 26, 0.14);
+    --c-yellow:       #ffd84d;
+    --c-pink:         #ff4daa;
+    --c-cyan:         #00e5d4;
+    --c-green:        #55e87a;
+    --c-text:         #fff5eb;
+    --c-text-muted:   rgba(255, 245, 235, 0.45);
+    --font-display:   'Space Grotesk', sans-serif;
+    --font-body:      'Nunito', sans-serif;
+    --r-sm:   8px;
+    --r-md:   14px;
+    --r-pill: 999px;
+    --ease:   0.18s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    background: var(--c-bg);
+    color: var(--c-text);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Fondo animado con blob difuso ---- */
+.bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+}
+
+/* Blob animados */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.22;
+    animation: drift 8s ease-in-out infinite alternate;
+}
+
+.blob-1 {
+    width: 480px; height: 480px;
+    background: var(--c-orange);
+    top: -120px; left: -80px;
+    animation-delay: 0s;
+}
+
+.blob-2 {
+    width: 320px; height: 320px;
+    background: var(--c-pink);
+    bottom: -60px; right: -40px;
+    animation-delay: -3s;
+}
+
+.blob-3 {
+    width: 240px; height: 240px;
+    background: var(--c-cyan);
+    top: 40%; right: 15%;
+    animation-delay: -5s;
+    opacity: 0.12;
+}
+
+@keyframes drift {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(30px, 20px) scale(1.08); }
+}
+
+/* Grid tenue de fondo */
+.bg-grid {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background-image:
+        linear-gradient(rgba(255,160,60,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,160,60,0.04) 1px, transparent 1px);
+    background-size: 44px 44px;
+}
+
+/* ---- Card principal ---- */
+.card-wrap {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(26, 17, 8, 0.85);
+    border: 1px solid var(--c-border);
+    border-radius: 24px;
+    padding: 38px 34px 34px;
+    backdrop-filter: blur(28px);
+    animation: slideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Logo ---- */
+.logo-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.logo-img {
+    width: 78px;
+    height: 30px;
+    background-image: url("https://www.uaeh.edu.mx/campus/preparatoria2/images/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    filter: brightness(1.1);
+}
+
+.logo-sep { width: 1px; height: 24px; background: var(--c-border); }
+
+.logo-text {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c-text-muted);
+    line-height: 1.4;
+}
+
+.logo-text strong {
+    display: block;
+    font-size: 14px;
+    color: var(--c-text);
+}
+
+/* ---- Título ---- */
+.login-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--c-text);
+    margin-bottom: 4px;
+    line-height: 1.1;
+}
+
+.login-title .accent { color: var(--c-orange); }
+
+.login-sub {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--c-text-muted);
+    margin-bottom: 28px;
+}
+
+/* ---- Campos ---- */
+.field {
+    margin-bottom: 14px;
+}
+
+.field label {
+    display: block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--c-text-muted);
+    margin-bottom: 7px;
+}
+
+.field input {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-md);
+    padding: 11px 14px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--c-text);
+    outline: none;
+    transition: var(--ease);
+}
+
+.field input::placeholder { color: rgba(255,245,235,0.18); }
+
+.field input:focus {
+    border-color: var(--c-orange);
+    background: rgba(255, 122, 26, 0.07);
+    box-shadow: 0 0 0 3px rgba(255, 122, 26, 0.14);
+}
+
+/* ---- Error ---- */
+.error-msg {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--c-pink);
+    margin: -6px 0 12px;
+    display: none;
+    padding: 8px 12px;
+    background: rgba(255,77,170,0.08);
+    border: 1px solid rgba(255,77,170,0.25);
+    border-radius: var(--r-sm);
+}
+
+.error-msg.visible { display: block; }
+
+/* ---- Botón entrar ---- */
+.btn-enter {
+    width: 100%;
+    padding: 13px;
+    background: var(--c-orange);
+    border: none;
+    border-radius: var(--r-md);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: var(--ease);
+    margin-top: 6px;
+}
+
+.btn-enter:hover {
+    background: var(--c-orange-light);
+    transform: translateY(-2px);
+}
+
+.btn-enter:active { transform: translateY(0); }
+
+/* ---- Hint credenciales ---- */
+.hint-box {
+    margin-top: 20px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed var(--c-border);
+    border-radius: var(--r-md);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--c-text-muted);
+    text-align: center;
+    line-height: 1.8;
+}
+
+.hint-box code {
+    background: rgba(255,216,77,0.12);
+    border: 1px solid rgba(255,216,77,0.25);
+    border-radius: 5px;
+    padding: 1px 7px;
+    font-family: monospace;
+    color: var(--c-yellow);
+}
+
+/* ---- Badge "demo" ---- */
+.badge-demo {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--c-orange-dim);
+    border: 1px solid var(--c-border-hot);
+    border-radius: var(--r-pill);
+    padding: 2px 10px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--c-orange-light);
+    margin-bottom: 20px;
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--c-green);
+    animation: blink 1.4s ease-in-out infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+}
