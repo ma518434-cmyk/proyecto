@@ -13,21 +13,21 @@ const DRAG_UMBRAL = 5; // px mínimos para considerar "drag" y no "click"
    DATOS — Puntos de interés
    ============================================================ */
 const PUNTOS_DE_INTERES = [
-    { id:'computo',              nombre:'Centros de Cómputo',    descripcion:'Laboratorios de informática',   tipo:'building', icono:'💻', imagen: 'imgs/computo.jpg',              x:0.42, y:0.29 },
-    { id:'CAI',                  nombre:'CAI',                   descripcion:'',                              tipo:'building', icono:'🏫', imagen: 'imgs/CAI.jpg',                  x:0.40, y:0.20 },
-    { id:'oficinas',             nombre:'Oficinas',              descripcion:'Administración y dirección',    tipo:'building', icono:'🏢', imagen: 'imgs/oficinas.jpg',             x:0.60, y:0.16 },
-    { id:'audiovisual',          nombre:'Audiovisual',           descripcion:'Producción multimedia',         tipo:'building', icono:'🎥', imagen: 'imgs/audiovisual.jpg',          x:0.73, y:0.20 },
-    { id:'Laboratorio-Quimica',  nombre:'Lab. de Química',       descripcion:'Prácticas de química',         tipo:'building', icono:'⚗️', imagen: 'imgs/laboratorio-quimica.jpg',  x:0.48, y:0.27 },
-    { id:'Edificio-H',           nombre:'Edificio H',            descripcion:'',                              tipo:'building', icono:'🏫', imagen: 'imgs/edificio-h.jpg',           x:0.50, y:0.40 },
-    { id:'biblioteca',           nombre:'Biblioteca',            descripcion:'Acervo y sala de lectura',      tipo:'service',  icono:'📚', imagen: 'imgs/biblioteca.jpg',           x:0.28, y:0.43 },
-    { id:'cafeteria',            nombre:'Cafetería',             descripcion:'Alimentos y bebidas',           tipo:'service',  icono:'🍽️', imagen: 'imgs/cafeteria.jpg',            x:0.26, y:0.32 },
-    { id:'Salon-Usos-Multiples', nombre:'Salón Usos Múltiples', descripcion:'Eventos y actividades',         tipo:'service',  icono:'🎭', imagen: 'imgs/salon-usos-multiples.jpg', x:0.45, y:0.85 },
-    { id:'pista',                nombre:'Pista Atlética',        descripcion:'Pista 400m y fútbol',           tipo:'Deportes', icono:'🏃', imagen: 'imgs/pista.jpg',                x:0.60, y:0.50 },
-    { id:'canchas',              nombre:'Canchas Deportivas',    descripcion:'Básquetbol y voleibol',         tipo:'Deportes', icono:'⚽', imagen: 'imgs/canchas.jpg',              x:0.72, y:0.70 },
-    { id:'estacionamiento',      nombre:'Estacionamiento',       descripcion:'Docentes y alumnos',            tipo:'parking',  icono:'🅿️', imagen: 'imgs/estacionamiento.jpg',      x:0.25, y:0.22 },
-    { id:'danza',                nombre:'Sala de Danza',         descripcion:'Prácticas de danza',            tipo:'service',  icono:'💃', imagen: 'imgs/danza.jpg',                x:0.80, y:0.27 },
-    { id:'explanada',            nombre:'Explanada',             descripcion:'Eventos al aire libre',         tipo:'Deportes', icono:'🌳', imagen: 'imgs/explanada.jpg',            x:0.63, y:0.25 },
-    { id:'Oficinas-Deportes',    nombre:'Oficina de Deportes',   descripcion:'Administración deportiva',     tipo:'service',  icono:'👨‍⚖️', imagen: 'imgs/oficinas-deportes.jpg',    x:0.26, y:0.52 },
+    { id:'computo',              nombre:'Centros de Cómputo',    descripcion:'Laboratorios de informática',  tipo:'building', icono:'💻', imagen: 'imgs/5.jpeg',  x:0.42, y:0.29 },
+    { id:'CAI',                  nombre:'CAI',                   descripcion:'',                             tipo:'building', icono:'🏫', imagen: 'imgs/8.jpeg',  x:0.40, y:0.20 },
+    { id:'oficinas',             nombre:'Oficinas',              descripcion:'Administración y dirección',   tipo:'building', icono:'🏢', imagen: 'imgs/1.jpeg',  x:0.60, y:0.16 },
+    { id:'audiovisual',          nombre:'Audiovisual',           descripcion:'Producción multimedia',        tipo:'building', icono:'🎥', imagen: 'imgs/12.jpeg', x:0.73, y:0.20 },
+    { id:'Laboratorio-Quimica',  nombre:'Lab. de Química',       descripcion:'Prácticas de química',         tipo:'building', icono:'⚗️', imagen: 'imgs/13.jpeg', x:0.48, y:0.27 },
+    { id:'Edificio-H',           nombre:'Edificio H',            descripcion:'Salones de Clase',             tipo:'building', icono:'🏫', imagen: 'imgs/10.jpeg', x:0.50, y:0.40 },
+    { id:'biblioteca',           nombre:'Biblioteca',            descripcion:'Acervo y sala de lectura',     tipo:'service',  icono:'📚', imagen: 'imgs/9.jpeg',  x:0.28, y:0.43 },
+    { id:'cafeteria',            nombre:'Cafetería',             descripcion:'Alimentos y bebidas',          tipo:'service',  icono:'🍽️', imagen: 'imgs/3.jpeg',  x:0.26, y:0.32 },
+    { id:'Salon-Usos-Multiples', nombre:'Salón Usos Múltiples', descripcion:'Eventos y actividades',         tipo:'service',  icono:'🎭', imagen: 'imgs/6.jpeg',  x:0.45, y:0.85 },
+    { id:'pista',                nombre:'Pista Atlética',        descripcion:'Pista 400m y fútbol',          tipo:'Deportes', icono:'🏃', imagen: 'imgs/7.jpeg',   x:0.81, y:0.45 },
+    { id:'canchas',              nombre:'Canchas Deportivas',    descripcion:'Futbol 11',                    tipo:'Deportes', icono:'⚽',               x:0.72, y:0.70 },
+    { id:'estacionamiento',      nombre:'Estacionamiento',       descripcion:'Docentes y alumnos',           tipo:'parking',  icono:'🅿️', imagen: 'imgs/2.jpeg',  x:0.25, y:0.22 },
+    { id:'danza',                nombre:'Sala de Danza',         descripcion:'Prácticas de danza',           tipo:'service',  icono:'💃',      x:0.80, y:0.27 },
+    { id:'explanada',            nombre:'Explanada',             descripcion:'Eventos al aire libre',        tipo:'Deportes', icono:'🌳', imagen: 'imgs/11.jpeg', x:0.63, y:0.25 },
+    { id:'Oficinas-Deportes',    nombre:'Oficina de Deportes',   descripcion:'Administración deportiva',     tipo:'service',  icono:'👨‍⚖️', imagen: 'imgs/4.jpeg',  x:0.26, y:0.52 },
 ];
 
 /* ============================================================
