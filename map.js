@@ -14,7 +14,7 @@ const DRAG_UMBRAL = 5; // px mínimos para considerar "drag" y no "click"
    ============================================================ */
 const PUNTOS_DE_INTERES = [
     { id:'computo',              nombre:'Centros de Cómputo',    descripcion:'Laboratorios de informática',  tipo:'building', icono:'💻', imagen: 'imgs/5.jpeg',  x:0.42, y:0.29 },
-    { id:'CAI',                  nombre:'CAI',                   descripcion:'',                             tipo:'building', icono:'🏫', imagen: 'imgs/8.jpeg',  x:0.40, y:0.20 },
+    { id:'CAI',                  nombre:'CAI',                   descripcion:'Centro de Autoaprendizaje de Idiomas', tipo:'building', icono:'🏫', imagen: 'imgs/8.jpeg',  x:0.40, y:0.20 },
     { id:'oficinas',             nombre:'Oficinas',              descripcion:'Administración y dirección',   tipo:'building', icono:'🏢', imagen: 'imgs/1.jpeg',  x:0.60, y:0.16 },
     { id:'audiovisual',          nombre:'Audiovisual',           descripcion:'Producción multimedia',        tipo:'building', icono:'🎥', imagen: 'imgs/12.jpeg', x:0.73, y:0.20 },
     { id:'Laboratorio-Quimica',  nombre:'Lab. de Química',       descripcion:'Prácticas de química',         tipo:'building', icono:'⚗️', imagen: 'imgs/13.jpeg', x:0.48, y:0.27 },
