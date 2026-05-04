@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prepa 2 login</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+</div>
+<div class="bg-grid"></div>
+
+<div class="card-wrap">
+    <div class="card">
+
+        <div class="logo-row">
+            <div class="logo-img"></div>
+            <div class="logo-sep"></div>
+            <div class="logo-text">
+                Preparatoria
+                <strong>No. 2 · UAEH</strong>
+            </div>
+        </div>
+
+        <div class="badge-demo">
+            Acceso al plantel
+        </div>
+
+        <h1 class="login-title">
+            Encuentra tu<br><span class="accent">camino.</span>
+        </h1>
+        <p class="login-sub">Entra con tu cuenta escolar para explorar el mapa 🗺️</p>
+
+        <div class="field">
+            <label>Matricula</label>
+            <input type="text" id="inp-user" placeholder="123456" autocomplete="off" />
+        </div>
+        <div class="field">
+            <label>Contraseña</label>
+            <input type="password" id="inp-pass" placeholder="Tu contraseña" />
+        </div>
+
+        <p class="error-msg" id="login-error">
+             Credenciales incorrectas, intenta de nuevo.
+        </p>
+
+        <button class="btn-enter" id="btn-login">Entrar al mapa →</button>
+
+        <div class="hint-box">
+            Demo — usuario: <code>123456</code> &nbsp;/&nbsp; contraseña: <code>123456</code>
+        </div>
+
+    </div>
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,547 @@
+/* ============================================================
+   FUENTES
+   Google Fonts: Space Grotesk (display) + Nunito (body)
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap');
+
+/* ============================================================
+   VARIABLES
+   ============================================================ */
+:root {
+    /* Paleta principal — naranja UAEH con toques vibrantes */
+    --c-bg:           #0e0b08;
+    --c-surface:      #1a1108;
+    --c-surface-2:    #261a0a;
+    --c-border:       rgba(255, 160, 60, 0.15);
+    --c-border-hot:   rgba(255, 140, 40, 0.55);
+
+    --c-orange:       #ff7a1a;
+    --c-orange-light: #ffab5e;
+    --c-orange-dim:   rgba(255, 122, 26, 0.14);
+    --c-yellow:       #ffd84d;
+    --c-pink:         #ff4daa;
+    --c-cyan:         #00e5d4;
+    --c-green:        #55e87a;
+    --c-purple:       #c084fc;
+
+    --c-text:         #fff5eb;
+    --c-text-muted:   rgba(255, 245, 235, 0.45);
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body:    'Nunito', sans-serif;
+
+    --r-sm:   8px;
+    --r-md:   14px;
+    --r-lg:   22px;
+    --r-pill: 999px;
+
+    --cinta-w:  260px;
+    --header-h: 54px;
+    --ease:     0.18s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    background: var(--c-bg);
+    color: var(--c-text);
+    font-family: var(--font-body);
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: var(--header-h);
+    background: rgba(14, 11, 8, 0.88);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--c-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 100;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-logo-img {
+    width: 86px;
+    height: 34px;
+    background-image: url("https://www.uaeh.edu.mx/campus/preparatoria2/images/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    filter: brightness(1.1);
+}
+
+.header-logo-sep {
+    width: 1px;
+    height: 20px;
+    background: var(--c-border);
+}
+
+.header-logo-text {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--c-text-muted);
+    letter-spacing: 0.01em;
+}
+
+.header-logo-text em {
+    font-style: normal;
+    color: var(--c-orange);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Tag de modo — estilo "chip" */
+.mode-chip {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--c-orange-dim);
+    border: 1px solid var(--c-border-hot);
+    border-radius: var(--r-pill);
+    padding: 4px 12px;
+    color: var(--c-orange-light);
+}
+
+.header-reset-btn {
+    background: transparent;
+    border: 1px solid rgba(255,77,170,0.4);
+    color: var(--c-pink);
+    padding: 5px 12px;
+    border-radius: var(--r-pill);
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 12px;
+    transition: var(--ease);
+    display: none;
+}
+
+.header-reset-btn:hover {
+    background: rgba(255,77,170,0.12);
+    border-color: var(--c-pink);
+}
+
+.header-reset-btn.visible { display: block; }
+
+/* Botón de usuario */
+.header-user {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--c-text-muted);
+    padding: 5px 12px;
+    border-radius: var(--r-pill);
+    border: 1px solid var(--c-border);
+    background: rgba(255,255,255,0.03);
+    cursor: pointer;
+    transition: var(--ease);
+}
+
+.header-user:hover { border-color: var(--c-border-hot); color: var(--c-orange-light); }
+
+.user-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--c-green);
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.main {
+    display: flex;
+    height: 100vh;
+    padding-top: var(--header-h);
+}
+
+/* ============================================================
+   SIDEBAR / CINTA
+   ============================================================ */
+.cinta {
+    width: var(--cinta-w);
+    flex-shrink: 0;
+    background: var(--c-surface);
+    border-right: 1px solid var(--c-border);
+    overflow-y: auto;
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--c-border) transparent;
+}
+
+.cinta::-webkit-scrollbar { width: 3px; }
+.cinta::-webkit-scrollbar-thumb { background: var(--c-border); border-radius: 4px; }
+
+/* Sección label */
+.section-label {
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--c-orange);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--c-border);
+}
+
+.divider {
+    height: 1px;
+    background: var(--c-border);
+    margin: 14px 0;
+}
+
+/* ============================================================
+   LISTA POIs
+   ============================================================ */
+.poi-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.poi-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 9px;
+    border-radius: var(--r-md);
+    cursor: pointer;
+    transition: var(--ease);
+    border: 1px solid transparent;
+}
+
+.poi-item:hover {
+    background: var(--c-surface-2);
+    border-color: var(--c-border);
+    transform: translateX(2px);
+}
+
+.poi-item.active {
+    background: var(--c-orange-dim);
+    border-color: var(--c-border-hot);
+}
+
+.poi-item__icon {
+    font-size: 14px;
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--r-sm);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--c-border);
+}
+
+.poi-item__name {
+    font-weight: 700;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--c-text);
+    line-height: 1.2;
+}
+
+.poi-item__type {
+    font-size: 10px;
+    color: var(--c-text-muted);
+    margin-top: 1px;
+}
+
+/* ============================================================
+   PANEL RUTA
+   ============================================================ */
+.route-hint {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c-text-muted);
+    line-height: 1.55;
+    margin-bottom: 12px;
+    background: var(--c-surface-2);
+    border-radius: var(--r-md);
+    padding: 10px 12px;
+    border: 1px solid var(--c-border);
+}
+
+.route-hint strong { color: var(--c-yellow); }
+
+.route-points {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.route-point {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+}
+
+.rp-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.rp-dot--origin { background: var(--c-orange); }
+.rp-dot--dest   { background: var(--c-yellow); }
+
+.rp-connector {
+    width: 2px;
+    height: 12px;
+    background: var(--c-border);
+    margin-left: 4px;
+    border-radius: 2px;
+}
+
+.rp-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--c-text-muted);
+}
+
+.rp-label.set { color: var(--c-text); }
+
+.clear-btn {
+    width: 100%;
+    padding: 8px;
+    background: transparent;
+    border: 1px solid var(--c-border);
+    color: var(--c-text-muted);
+    border-radius: var(--r-md);
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 12px;
+    transition: var(--ease);
+}
+
+.clear-btn:hover {
+    border-color: rgba(255,77,170,0.5);
+    color: var(--c-pink);
+    background: rgba(255,77,170,0.06);
+}
+
+/* ============================================================
+   LEYENDA
+   ============================================================ */
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--c-text-muted);
+}
+
+.legend-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.legend-dot--building { background: #4da6ff; }
+.legend-dot--sport    { background: #00e5a0; }
+.legend-dot--parking  { background: #c084fc; }
+.legend-dot--service  { background: #ff7a1a; }
+
+/* ============================================================
+   MAPA / CANVAS
+   ============================================================ */
+.map-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: #050608;
+}
+
+.map-wrapper {
+    position: absolute;
+    inset: 0;
+    cursor: grab;
+    touch-action: none;
+}
+
+.map-wrapper.grabbing { cursor: grabbing; }
+.map-wrapper.routing  { cursor: crosshair; }
+
+#js-map-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* ============================================================
+   TOOLTIP
+   ============================================================ */
+.map-tooltip {
+    position: absolute;
+    background: rgba(20, 14, 6, 0.97);
+    border: 1px solid var(--c-border-hot);
+    border-radius: var(--r-md);
+    padding: 0;
+    pointer-events: none;
+    display: none;
+    flex-direction: column;
+    max-width: 210px;
+    backdrop-filter: blur(12px);
+    z-index: 50;
+    overflow: hidden;
+}
+
+.map-tooltip.visible { display: flex; }
+
+/* Imagen del POI — ocupa el ancho completo del tooltip */
+.tooltip-img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    display: none;          /* JS lo activa si hay imagen */
+    border-bottom: 1px solid var(--c-border);
+}
+
+/* Contenedor del texto debajo de la imagen */
+.tooltip-body {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 10px 13px;
+}
+
+.tooltip-icon   { font-size: 18px; margin-bottom: 2px; }
+
+.tooltip-name {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--c-text);
+}
+
+.tooltip-desc {
+    font-size: 11px;
+    color: var(--c-text-muted);
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+/* ============================================================
+   ZOOM
+   ============================================================ */
+.zoom-controls {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 50;
+}
+
+.zoom-btn {
+    width: 36px;
+    height: 36px;
+    background: rgba(14, 11, 8, 0.9);
+    border: 1px solid var(--c-border);
+    color: var(--c-text-muted);
+    border-radius: var(--r-sm);
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--ease);
+    font-family: var(--font-display);
+    font-weight: 700;
+    backdrop-filter: blur(8px);
+}
+
+.zoom-btn:hover {
+    border-color: var(--c-border-hot);
+    color: var(--c-orange);
+    background: var(--c-orange-dim);
+}
+
+/* ============================================================
+   PIE DE MAPA — instrucciones
+   ============================================================ */
+.map-tip {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(14, 11, 8, 0.85);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-pill);
+    padding: 6px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--c-text-muted);
+    pointer-events: none;
+    backdrop-filter: blur(10px);
+    white-space: nowrap;
+    z-index: 50;
+    letter-spacing: 0.02em;
+}
+
+/* Indicador de coordenadas en tiempo real */
+.map-coords {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(14, 11, 8, 0.88);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-sm);
+    padding: 5px 12px;
+    font-family: monospace;
+    font-size: 12px;
+    color: var(--c-orange-light);
+    pointer-events: none;
+    backdrop-filter: blur(10px);
+    z-index: 50;
+    letter-spacing: 0.04em;
+    min-width: 160px;
+}
